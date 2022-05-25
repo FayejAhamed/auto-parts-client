@@ -4,7 +4,7 @@ import SingleParts from '../SingleParts/SingleParts';
 const PartsCard = () => {
     const[parts, setParts] = useState([])
     useEffect(()=>{
-        fetch('service.json')
+        fetch('http://localhost:5000/purchase')
         .then(res=>res.json())
         .then(data=>setParts(data))
     }, [])
@@ -15,7 +15,9 @@ const PartsCard = () => {
             <h2 className='text-5xl font-semibold text-center'>We Manufacture All Kind of Vehicle parts {parts.length}</h2>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:mx-auto gap-8 mx-auto'>
                 {
-                    parts.map(part=><SingleParts part={part}></SingleParts>)
+                    parts.map(part=><SingleParts
+                        key={part._id}
+                        part={part}></SingleParts>)
                 }
             </div>
             <div className="divider mt-28"></div> 

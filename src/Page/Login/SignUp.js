@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading/Loading';
 
 const SignUp = () => {
@@ -16,6 +17,8 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+    const [token] = useToken(user || gUser);
+
     const navigate = useNavigate();
 
     let signInError;
@@ -27,7 +30,7 @@ const SignUp = () => {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
     
-    if (user || gUser) {
+    if (token) {
         console.log(user || gUser);
     }
 
@@ -38,7 +41,7 @@ const SignUp = () => {
         navigate('/');
     }
     return (
-        <div className='flex h-screen justify-center items-center'>
+        <div className='flex h-screen justify-center items-center mt-24'>
         <div className="card w-96 bg-base-100 shadow-xl">
             <div className="card-body">
                 <h2 className="text-center text-2xl font-bold">Sign Up</h2>

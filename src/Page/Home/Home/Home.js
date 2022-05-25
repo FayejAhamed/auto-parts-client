@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../../Shared/Navbar/Navbar';
 import AutoParts from '../AutoParts/AutoParts';
 import Banner from '../Banner/Banner';
 import PartsCard from '../PartsCard/PartsCard';
