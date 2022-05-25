@@ -141,7 +141,7 @@ const Purchase = () => {
     };
 
     return (
-        <div>
+        <div className='mt-24'>
             <div className='lg:w-[1170px] mx-auto'>
                 {/* main  */}
                 <div class="card w-full shadow-xl bg-slate-100 p-[15px] lg:p-[25px]">
