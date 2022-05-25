@@ -7,7 +7,7 @@ const AutoParts = () => {
             <div className='text-center py-4 sm:pb-10 text-white' >
                 <h1 className='text-5xl font-semibold'>Keep Your Vehicle in Great Condition with Top Auto Parts</h1>
                 <p className='text-2xl py-4 font-medium'>Engineered for your best workout yet</p>
-                <button class="btn btn-active btn-warning">Explore more</button>
+                <button className="btn btn-active btn-warning">Explore more</button>
                 
             </div>
             <div><img src={parts1} alt="" /></div>
