@@ -12,7 +12,7 @@ const PartsCard = () => {
         <div className='py-20 mx-auto '>
               <div className="divider my-20"></div> 
 
-            <h2 className='text-5xl font-semibold text-center'>We Manufacture All Kind of Vehicle parts {parts.length}</h2>
+            <h2 className='text-5xl font-semibold text-center my-4 py-4'>We Manufacture All Kind of Vehicle parts</h2>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:mx-auto gap-8 mx-auto'>
                 {
                     parts.map(part=><SingleParts

@@ -20,6 +20,7 @@ import ManageProducts from './Page/Dashboard/ManageProducts';
 import Users from './Page/Dashboard/Users';
 import AddProduct from './Page/Dashboard/AddProduct';
 import RequireAdmin from './Page/Login/RequireAdmin';
+import NotFound from './Page/Shared/NotFound';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path='addProduct' element={<RequireAdmin><AddProduct/></RequireAdmin>}></Route>
 
         </Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer />
