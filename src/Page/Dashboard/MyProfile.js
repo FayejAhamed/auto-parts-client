@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
@@ -85,7 +84,7 @@ const MyProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className='p-[30px] '>
+            <div className='p-[30px] w-3/4 mx-auto '>
                 <div className='p-[40px] shadow-xl border-4 border-primary bg-slate-100 rounded-xl'>
                     <h2 class=" text-4xl text-center">My Profile</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -98,14 +97,30 @@ const MyProfile = () => {
                         {/*location*/}
                         <input {...register("location")} placeholder='location' type='text' className="input input-bordered w-full my-[14px]" />
                         {/* Phone Number  */}
-                        <input {...register("PhoneNumber")} placeholder='Phone Number ' type='text' className="input input-bordered w-full my-[14px]" />
+                        <input {...register("PhoneNumber", 
+                         {
+                            required: {
+                                value: true,
+                                message: 'Phone is is Required'
+                            }
+                        }
+                        )} placeholder='Phone Number ' type='text' className="input input-bordered w-full my-[14px]" />
                         {/* profile link */}
-                        <input {...register("LinkedInprofilelink")} placeholder='profile link' type='text' className="input input-bordered w-full my-[14px]" />
+                        <input {...register("LinkedInprofilelink",
+                        {
+                            required: {
+                                value: true,
+                                message: 'LinkInId is Required'
+                            }
+                        }
+                        )} placeholder='profile link' type='text' className="input input-bordered w-full my-[14px]" 
+                        
+                        />
 
                         {/* submit btn  */}
                         <div className="mt-[18px] flex justify-center">
                             <div>
-                                <input className="btn btn-accent text-white mx-[10px]" type="submit" value='UPDATE' />
+                                <input className="btn btn-accent px-24 text-white mx-[10px]" type="submit" value='UPDATE' />
                             </div>
 
                         </div>

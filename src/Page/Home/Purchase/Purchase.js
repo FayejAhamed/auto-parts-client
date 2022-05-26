@@ -43,7 +43,7 @@ const Purchase = () => {
     }))
 
 
-
+// console.log(data);
 
     if (isLoading || loading) {
         return <Loading></Loading>
@@ -76,31 +76,34 @@ const Purchase = () => {
     // }, [])
 
 
-    const onSubmit = data => {
-        console.log(data)
+    const onSubmit = event => {
+        // console.log(data)
         const order = {
             name: data?.name,
-            email: data?.email,
-            quantity: data?.quantity,
-            reciverName: data?.reciverName,
-            Address: data?.Address,
-            phoneNumber: data?.phoneNumber,
-            itemName: data?.name,
+            
+            email:event?.email,
+            quantity: event?.quantity,
+            reciverName: event?.reciverName,
+            Address: event?.address,
+            phoneNumber: event?.phoneNumber,
+            itemName: event?.name,
             discription: data?.description,
             picture: data?.picture,
             price: data?.price,
             paid: 'panding'
         }
-        console.log(data);
-        const inputQunentity = parseFloat(data?.quantity);
-        const minimumQuantity = data?.minimumQuantity;
-        const availableQuantity = data?.availableQuantity;
+        // console.log(data);
+        const inputQunentity = parseInt(event?.quantity);
+        const minimumQuantity =parseInt( data?.minimumQuantity);
+        const availableQuantity =parseInt( data?.availableQuantity);
+        // console.log(availableQuantity);
+
 
         if (inputQunentity < minimumQuantity) {
-            alert("You can not order lase then 1 pic")
+            alert("You can not order less than minimum quantity of unit ")
         }
         else if (inputQunentity > availableQuantity) {
-            alert("You can not order more then 12 pic")
+            alert("You can not order more then available unit")
         }
         else {
             // /order
@@ -121,24 +124,24 @@ const Purchase = () => {
                 })
         }
     }
-    const handleQuantity = (event) => {
-        const inputQunentity = parseFloat(data?.quantity);
-        console.log(inputQunentity);
-        const minimumQuantity = data?.minimumQuantity;
-        console.log(minimumQuantity);
-        const availableQuantity = data?.availableQuantity;
+    // const handleQuantity = (event) => {
+    //     const inputQunentity = parseFloat(data?.quantity);
+    //     console.log(inputQunentity);
+    //     const minimumQuantity = data?.minimumQuantity;
+    //     console.log(minimumQuantity);
+    //     const availableQuantity = data?.availableQuantity;
 
-        if (30 > inputQunentity) {
-            setQuantityError(`At least ${minimumQuantity}can be purchased`);
-            setQuantity(parseInt(event.target.value));
-        } else if (parseInt(event.target.value) > availableQuantity) {
-            setQuantityError(`Out of stock! You can order ${availableQuantity}`)
-            setQuantity(parseInt(event.target.value));
-        } else {
-            setQuantity(parseInt(event.target.value));
-            setQuantityError('');
-        }
-    };
+    //     if (30 > inputQunentity) {
+    //         setQuantityError(`At least ${minimumQuantity}can be purchased`);
+    //         setQuantity(parseInt(event.target.value));
+    //     } else if (parseInt(event.target.value) > availableQuantity) {
+    //         setQuantityError(`Out of stock! You can order ${availableQuantity}`)
+    //         setQuantity(parseInt(event.target.value));
+    //     } else {
+    //         setQuantity(parseInt(event.target.value));
+    //         setQuantityError('');
+    //     }
+    // };
 
     return (
         <div className='mt-24'>
@@ -188,7 +191,7 @@ const Purchase = () => {
                                 <div className='mx-auto'>
                                     <form onSubmit={handleSubmit(onSubmit)} className='lg:w-[670p'>
                                         {/* name */}
-                                        <input {...register("Name")} type='text' hidden value={user?.displayName} className="input input-bordered  w-full my-[10px]" />
+                                        <input {...register("name")} type='text' hidden value={user?.displayName} className="input input-bordered  w-full my-[10px]" />
                                         {/* email */}
                                         <input {...register("email")} type='text' hidden value={user?.email} className="input input-bordered w-full my-[10px]" />
 
@@ -202,7 +205,7 @@ const Purchase = () => {
                                                 message: ' Minimum quantity is Required'
                                             }
                                         }
-                                        )} placeholder='Quntity' type='number' onChange={handleQuantity} className="input input-bordered w-full max-w-xs" />
+                                        )} placeholder='Quntity' type='number'  className="input input-bordered w-full max-w-xs" />
                                         <label className="label">
                                             {errors.quantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors?.quantity?.message}</span>}
                                         </label>
