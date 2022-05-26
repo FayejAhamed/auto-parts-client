@@ -35,7 +35,7 @@ const MyOrders = () => {
                 setitems(data)
             })
     }, [])
-
+console.log(items);
     // delete Item api call
     const deleteItem = (props) => {
         // console.log(props)
@@ -50,6 +50,7 @@ const MyOrders = () => {
                         setitems(remaing)
                     }
                 })
+                
         
     }
     return (
@@ -65,17 +66,20 @@ const MyOrders = () => {
                             }
                         </h2>
                         <div className=" justify-start">
-                            <p className='my-[6px] font-semibold'>Totul Price : {parseFloat(item?.price) * parseFloat(item.quantity)}</p>
-                            <p className='my-[6px] font-semibold'>Quentity : {item?.quantity}</p>
+                            <p className='my-[6px] font-semibold'>Total Price : {parseFloat(item?.price) * parseFloat(item.quantity)}</p>
+                            <p className='my-[6px] font-semibold'>Quantity : {item?.quantity}</p>
                             <p className='my-[6px] font-semibold'>Reciver Name : {item?.reciverName}</p>
-                            <small className='mb-[6px] font-semibold'>User-email:{item?.email}</small>
+                            <small className='mb-[6px] font-semibold'>User Email:{item?.email}</small>
                             <p className='my-[6px] font-semibold'><small>Address: {item.Address}</small></p>
                             <p className='my-[6px] font-semibold'>Phone Number : <small>{item?.PhoneNumber}</small></p>
 
                             <div className='flex justify-between'>
+
+
+                                
                                 <div>
                                     {
-                                        item.paid === 'panding' && <Link to={'/payment/' + item?._id}><button className="btn bg-green-700 px-[40px] text-white " >Pay</button></Link>
+                                        item?.paid === 'panding' && <Link to={`/dashboard/payment/${item?._id}`}><button className="btn bg-green-700 px-[40px] text-white " >Pay</button></Link>
                                     }
                                 </div>
                                 <label htmlFor="my-modal-3" className="btn modal-button bg-red-500 border-0 px-5">Delete</label>

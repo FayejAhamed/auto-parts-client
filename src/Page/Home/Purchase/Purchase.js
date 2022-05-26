@@ -20,6 +20,7 @@ const Purchase = () => {
 
     // react form
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
+    
 
 
     const { data, isLoading } = useQuery('services', () => fetch(`http://localhost:5000/purchase/${id}`, {
@@ -147,19 +148,19 @@ const Purchase = () => {
         <div className='mt-24'>
             <div className='lg:w-[1170px] mx-auto'>
                 {/* main  */}
-                <div className="card w-full shadow-xl bg-slate-100 p-[15px] lg:p-[25px]">
+                <div class="card w-full shadow-xl bg-slate-100 p-[15px] lg:p-[25px]">
 
                     <div className='lg:flex'>
                         {/* items info  */}
-                        <div key={data?._id} className="card  lg:w-80 my-[35px] mx-auto bg-base-100 shadow-xl border-4 border-[#d2d4e3]">
+                        <div key={data?._id} class="card  lg:w-80 my-[35px] mx-auto bg-base-100 shadow-xl border-4 border-[#d2d4e3]">
                             <figure><img src={data?.picture} alt="" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">
+                            <div class="card-body">
+                                <h2 class="card-title">
                                     {data?.name}
-                                    <div className="badge badge-primary">NEW</div>
+                                    <div class="badge badge-primary">NEW</div>
 
                                 </h2>
-                                <div className=" justify-start">
+                                <div class=" justify-start">
                                     <h2 className="card-title">{data?.name}</h2>
                                     <p>{data?.description.slice(0, 70)}</p>
                                     <p>Available Parts: <span className='font-semibold'> {data?.availableQuantity}</span> unit</p>
@@ -175,16 +176,16 @@ const Purchase = () => {
                             <div className='p-[20px] shadow-xl border-4 border-[#d2d4e3] bg-slate-100 rounded-xl'>
                                 {/* user info */}
                                 <div className='bg-[#ffffff] p-[10px] lg:flex lg:justify-start justify-between mb-[12px]'>
-                                    <div className="flex items-center">
+                                    <div class="flex items-center">
 
                                         <div className=' mx-[20px]'>
-                                            <span className="badge badge-ghost badge-sm">Name</span>
+                                            <span class="badge badge-ghost badge-sm">Name</span>
                                             <br />
-                                            <div className="font-bold">{user?.displayName}</div>
+                                            <div class="font-bold">{user?.displayName}</div>
                                         </div>
                                     </div>
                                     <div className='lg:mx-[20px]  my-[10px] lg:my-[0]'>
-                                        <span className="badge badge-ghost badge-sm">Email</span>
+                                        <span class="badge badge-ghost badge-sm">Email</span>
                                         <br />
                                         {user?.email}</div>
                                 </div>
