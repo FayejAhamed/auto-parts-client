@@ -26,7 +26,7 @@ const ShowReview = () => {
                             <h2 class="card-title">{rating.Name}</h2>
                             <p>{rating.description}</p>
                             <div class="card-actions justify-start">
-                                <p>Rating: {rating.rating}</p>
+                                <p>Rating: <span className='text-yellow-700 font-bold'> {rating.rating} Star</span></p>
                             </div>
                         </div>
                     </div>)
