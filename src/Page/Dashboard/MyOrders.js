@@ -38,9 +38,8 @@ const MyOrders = () => {
 
     // delete Item api call
     const deleteItem = (props) => {
-        console.log(props)
-        const confirm = window.confirm('Do you want to Remove it')
-        if (confirm) {
+        // console.log(props)
+      
             fetch(`http://localhost:5000/orders/${props}`, {
                 method: 'Delete',
             })
@@ -51,11 +50,11 @@ const MyOrders = () => {
                         setitems(remaing)
                     }
                 })
-        }
+        
     }
     return (
         <div>
-            <div  className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6'>
                 {items?.map(item => <div key={item?._id} class="card w-full lg:w-80 my-[35px] mx-auto bg-base-100 shadow-xl">
                     <figure><img src={item?.picture} alt="Shoes" /></figure>
                     <div class="card-body">
@@ -79,7 +78,18 @@ const MyOrders = () => {
                                         item.paid === 'panding' && <Link to={'/payment/' + item?._id}><button className="btn bg-green-700 px-[40px] text-white " >Pay</button></Link>
                                     }
                                 </div>
-                                <button className="btn bg-red-500 px-[40px] text-white " onClick={() => deleteItem(item?._id)}>Delete</button>
+                                <label for="my-modal-3" class="btn modal-button bg-red-500 border-0 px-5">Delete</label>
+
+                                <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+                                <div class="modal">
+                                    <div class="modal-box relative">
+                                        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                        <h3 class="text-lg font-bold">Are sure You want to delete the order?</h3>
+                                        <button className="btn bg-red-500 px-[40px] text-white " onClick={() => deleteItem(item?._id)}>Delete</button>
+                                    </div>
+                                </div>
+
+                               
                             </div>
 
                         </div>
@@ -87,7 +97,7 @@ const MyOrders = () => {
                 </div>)}
 
             </div>
-        </div>
+        </div >
     );
 };
 

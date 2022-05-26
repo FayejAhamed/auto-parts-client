@@ -1,6 +1,8 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
@@ -9,17 +11,34 @@ const MyProfile = () => {
     const [user, loading] = useAuthState(auth)
     const [userInfo, setUserInfo] = useState([]);
     const { register, handleSubmit, reset } = useForm();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userProfile/${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
+        fetch(`http://localhost:5000/userProfile/${user?.email}`,{
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res => {
+            if (res.status === 403) {
+                signOut(auth);
+                localStorage.removeItem('accessToken')
+                navigate('/login')
+            }
+            else if (res.status === 401) {
+                signOut(auth);
+                localStorage.removeItem('accessToken')
+                navigate('/login')
+            }
+            return res.json()
+        })
+        .then(data => {
                 console.log(data);
                 setUserInfo(data)
             })
     }, [user])
 
-    console.log(userInfo);
+    // console.log(userInfo);
 
     if(loading){
         return <Loading></Loading>
@@ -36,7 +55,7 @@ const MyProfile = () => {
 
 
         }
-        console.log(data)
+        // console.log(data)
         fetch('http://localhost:5000/userUpdate', {
             method: 'PUT',
             headers: {
