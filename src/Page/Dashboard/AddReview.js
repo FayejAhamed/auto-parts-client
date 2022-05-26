@@ -47,16 +47,16 @@ const AddReview = () => {
     return (
         <div className=' w-1/2 mx-auto mt-12'>
             <div className='p-[40px] shadow-xl border-4 border-x-yellow-200 bg-amber-50 rounded-xl'>
-                <h2 class=" text-4xl text-center text-teal-700 font-bold my-2">Add Your Feedback</h2>
+                <h2 className=" text-4xl text-center text-teal-700 font-bold my-2">Add Your Feedback</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {/* name */}
                     <input {...register("Name")} type='text' value={user?.displayName} className="input input-bordered w-full my-[14px]" />
                     {/* email */}
                     <input {...register("email")} type='text' value={user?.email} className="input input-bordered w-full my-[14px]" />
                     {/* discripition */}
-                    <textarea class="textarea w-full textarea-info"  {...register("description")} required placeholder="Make a Comment Here"></textarea>
+                    <textarea className="textarea w-full textarea-info"  {...register("description")} required placeholder="Make a Comment Here"></textarea>
                     {/* raing */}
-                    <select class="select select-info w-full my-[14px]"{...register("rating")}>
+                    <select className="select select-info w-full my-[14px]"{...register("rating")}>
                         <option selected disabled>Rating</option>
                         <option>1</option>
                         <option>2</option>

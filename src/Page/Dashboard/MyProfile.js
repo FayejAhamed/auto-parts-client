@@ -76,13 +76,13 @@ const MyProfile = () => {
     return (
         <div className='h-100'>
             <div className='p-[30px]'>
-                <div class="card w-full shadow-xl border-4 border-primary bg-slate-100">
-                    <figure class="px-10 pt-10">
-                        <img src={user?.photoURL} alt="IMG" class="rounded-full border-4 border-primary" />
+                <div className="card w-full shadow-xl border-4 border-primary bg-slate-100">
+                    <figure className="px-10 pt-10">
+                        <img src={user?.photoURL} alt="IMG" className="rounded-full border-4 border-primary" />
 
                     </figure>
-                    <h2 class=" text-3xl text-center">My Profile</h2>
-                    <div class="card-body ">
+                    <h2 className=" text-3xl text-center">My Profile</h2>
+                    <div className="card-body ">
 
                         <p className='font-semibold'>Name : {user?.displayName}</p>
                         <p className='font-semibold'>Email : {user?.email}</p>
@@ -105,7 +105,7 @@ const MyProfile = () => {
             </div>
             <div className='p-[30px] w-3/4 mx-auto '>
                 <div className='p-[40px] shadow-xl border-4 border-primary bg-slate-100 rounded-xl'>
-                    <h2 class=" text-4xl text-center">My Profile</h2>
+                    <h2 className=" text-4xl text-center">Update Profile</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* name */}
                         <input {...register("name")} type='text' value={user?.displayName} className="input input-bordered w-full my-[14px]" />

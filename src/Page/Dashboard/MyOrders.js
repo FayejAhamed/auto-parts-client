@@ -55,16 +55,16 @@ const MyOrders = () => {
     return (
         <div>
             <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6'>
-                {items?.map(item => <div key={item?._id} class="card w-full lg:w-80 my-[35px] mx-auto bg-base-100 shadow-xl">
+                {items?.map(item => <div key={item?._id} className="card w-full lg:w-80 my-[35px] mx-auto bg-base-100 shadow-xl">
                     <figure><img src={item?.picture} alt="Shoes" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">
+                    <div className="card-body">
+                        <h2 className="card-title">
                             Product Name : {item?.name}
                             {
-                                item?.paid === 'panding' ? <div class="badge badge-primary pb-[3px]">{item?.paid}</div> : <div class="badge badge-primary pb-[3px]">paid</div>
+                                item?.paid === 'panding' ? <div className="badge badge-primary pb-[3px]">{item?.paid}</div> : <div className="badge badge-primary pb-[3px]">paid</div>
                             }
                         </h2>
-                        <div class=" justify-start">
+                        <div className=" justify-start">
                             <p className='my-[6px] font-semibold'>Totul Price : {parseFloat(item?.price) * parseFloat(item.quantity)}</p>
                             <p className='my-[6px] font-semibold'>Quentity : {item?.quantity}</p>
                             <p className='my-[6px] font-semibold'>Reciver Name : {item?.reciverName}</p>
@@ -78,13 +78,13 @@ const MyOrders = () => {
                                         item.paid === 'panding' && <Link to={'/payment/' + item?._id}><button className="btn bg-green-700 px-[40px] text-white " >Pay</button></Link>
                                     }
                                 </div>
-                                <label for="my-modal-3" class="btn modal-button bg-red-500 border-0 px-5">Delete</label>
+                                <label htmlFor="my-modal-3" className="btn modal-button bg-red-500 border-0 px-5">Delete</label>
 
-                                <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-                                <div class="modal">
-                                    <div class="modal-box relative">
-                                        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                        <h3 class="text-lg font-bold">Are sure You want to delete the order?</h3>
+                                <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+                                <div className="modal">
+                                    <div className="modal-box relative">
+                                        <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                        <h3 className="text-lg font-bold">Are sure You want to delete the order?</h3>
                                         <button className="btn bg-red-500 px-[40px] text-white " onClick={() => deleteItem(item?._id)}>Delete</button>
                                     </div>
                                 </div>

@@ -12,20 +12,20 @@ const ShowReview = () => {
     }
     return (
         <div className='mt-24'>
-            <div class="divider my-20"></div> 
+            <div className="divider my-20"></div> 
             <h2 className='text-6xl text-center my-5 text-gray-800'>FeedBack From Our Customer</h2>
             <div className='grid lg:grid-cols-3  md:grid-cols-2 gap-4  lg:gap-8 grid-cols-1'>
                 {
-                    ratings.map(rating => <div class="card w-96 border-2 shadow-md " key={rating._id}>
-                        <div class="card-body items-center text-center">
-                            <div class="avatar">
-                                <div class="w-24 rounded-full">
+                    ratings.map(rating => <div className="card w-96 border-2 shadow-md " key={rating._id}>
+                        <div className="card-body items-center text-center">
+                            <div className="avatar">
+                                <div className="w-24 rounded-full">
                                     <img src="https://api.lorem.space/image/face?hash=92310"  alt=''/>
                                 </div>
                             </div>
-                            <h2 class="card-title">{rating.Name}</h2>
+                            <h2 className="card-title">{rating.Name}</h2>
                             <p>{rating.description}</p>
-                            <div class="card-actions justify-start">
+                            <div className="card-actions justify-start">
                                 <p>Rating: <span className='text-yellow-700 font-bold'> {rating.rating} Star</span></p>
                             </div>
                         </div>
