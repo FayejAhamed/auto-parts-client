@@ -2,6 +2,7 @@ import React from 'react';
 import AutoParts from '../AutoParts/AutoParts';
 import Banner from '../Banner/Banner';
 import PartsCard from '../PartsCard/PartsCard';
+import ShowReview from '../ShowReview/ShowReview';
 import Summary from '../Summary/Summary';
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             <PartsCard></PartsCard>
             <Summary></Summary>
             <AutoParts></AutoParts>
+            <ShowReview></ShowReview>
         </div>
         
        </div>

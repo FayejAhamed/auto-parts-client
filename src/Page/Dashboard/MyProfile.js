@@ -36,7 +36,7 @@ const MyProfile = () => {
                 console.log(data);
                 setUserInfo(data)
             })
-    }, [user])
+    }, [user, userInfo])
 
     // console.log(userInfo);
 

@@ -54,9 +54,9 @@ const AddReview = () => {
                     {/* email */}
                     <input {...register("email")} type='text' value={user?.email} className="input input-bordered w-full my-[14px]" />
                     {/* discripition */}
-                    <textarea class="textarea w-full textarea-info" placeholder="Make a Comment Here"></textarea>
+                    <textarea class="textarea w-full textarea-info"  {...register("description")} required placeholder="Make a Comment Here"></textarea>
                     {/* raing */}
-                    <select class="select select-info w-full my-[14px]"{...register("raing")}>
+                    <select class="select select-info w-full my-[14px]"{...register("rating")}>
                         <option selected disabled>Rating</option>
                         <option>1</option>
                         <option>2</option>
