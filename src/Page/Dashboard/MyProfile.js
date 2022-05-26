@@ -14,7 +14,7 @@ const MyProfile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userProfile/${user?.email}`,{
+        fetch(`https://protected-sierra-14862.herokuapp.com/userProfile/${user?.email}`,{
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -56,7 +56,7 @@ const MyProfile = () => {
 
         }
         // console.log(data)
-        fetch('http://localhost:5000/userUpdate', {
+        fetch('https://protected-sierra-14862.herokuapp.com/userUpdate', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

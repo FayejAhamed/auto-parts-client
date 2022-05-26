@@ -12,7 +12,7 @@ const Payment = () => {
     const [products, setProducts]= useState([]);
     const { id } = useParams();
     console.log(products);
-    const url = `http://localhost:5000/payment/${id}`
+    const url = `https://protected-sierra-14862.herokuapp.com/payment/${id}`
 
     useEffect(()=>{
         fetch(url,{

@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading/Loading';
 
 const ManageProducts = () => {
     const [items, setItems] = useState([])
-    const { data: products, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/purchase',).then(res => res.json()))
+    const { data: products, isLoading, refetch } = useQuery('users', () => fetch('https://protected-sierra-14862.herokuapp.com/purchase',).then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -12,7 +12,7 @@ const ManageProducts = () => {
     const deleteItem = (props) => {
         // console.log(props)
 
-        fetch(`http://localhost:5000/purchase/${props}`, {
+        fetch(`https://protected-sierra-14862.herokuapp.com/purchase/${props}`, {
             method: 'Delete',
         })
             .then(response => response.json())

@@ -16,7 +16,7 @@ const CheckoutForm = ({products}) => {
     const email = products?.email;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://protected-sierra-14862.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -79,7 +79,7 @@ const CheckoutForm = ({products}) => {
                 Products: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/orderPay/${_id}`, {
+            fetch(`https://protected-sierra-14862.herokuapp.com/orderPay/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

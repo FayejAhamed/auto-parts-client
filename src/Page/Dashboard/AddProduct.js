@@ -21,7 +21,7 @@ const AddProduct = () => {
 
 
         // /order
-        fetch('http://localhost:5000/add', {
+        fetch('https://protected-sierra-14862.herokuapp.com/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

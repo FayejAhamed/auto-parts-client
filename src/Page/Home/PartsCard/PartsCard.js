@@ -4,7 +4,7 @@ import SingleParts from '../SingleParts/SingleParts';
 const PartsCard = () => {
     const[parts, setParts] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/purchase')
+        fetch('https://protected-sierra-14862.herokuapp.com/purchase')
         .then(res=>res.json())
         .then(data=>setParts(data))
     }, [])

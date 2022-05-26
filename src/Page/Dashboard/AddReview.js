@@ -15,7 +15,7 @@ const AddReview = () => {
 
     const onSubmit = data => {
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://protected-sierra-14862.herokuapp.com/review', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
